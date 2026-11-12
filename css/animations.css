@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Glitedge — motion primitives (GSAP drives the choreography)
+   ========================================================================== */
+
+/* Initial hidden states only once JS confirms GSAP, so content never traps */
+.js-anim [data-reveal] { opacity: 0; transform: translateY(24px); }
+.js-anim .hero__line > span { transform: translateY(110%); }
+.js-anim .hero__photo { clip-path: inset(100% 0 0 0); }
+.js-anim .hero__panel { transform: scaleY(0); }
+.js-anim .hero__rule { transform: scaleX(0); }
+.js-anim .hero__eyebrow, .js-anim .hero__lead, .js-anim .hero__actions, .js-anim .hero__loc, .js-anim .hero__scroll, .js-anim .hero__card, .js-anim .hero__corner, .js-anim .hero__outline { opacity: 0; }
+.js-anim .img-reveal { clip-path: inset(0 100% 0 0); }
+.js-anim:not(.is-ready) .header { opacity: 0; }
+.js-anim .phero__media { clip-path: inset(0 0 100% 0); }
+.js-anim .phero__panel { opacity: 0; transform: translateY(24px); }
+.js-anim .title .w > span { transform: translateY(110%); }
+
+.title .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.title .w > span { display: inline-block; }
+
+.img-zoom img, .img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 1.2s var(--ease); }
+.img-zoom:hover img { transform: scale(1.04); }
+
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .js-anim [data-reveal], .js-anim .header, .js-anim .hero__eyebrow, .js-anim .hero__lead, .js-anim .hero__actions, .js-anim .hero__loc, .js-anim .hero__scroll, .js-anim .hero__card, .js-anim .hero__corner, .js-anim .hero__outline, .js-anim .hero__panel, .js-anim .hero__rule { opacity: 1; transform: none; }
+  .js-anim .hero__line > span, .js-anim .title .w > span { transform: none; }
+  .js-anim .hero__photo, .js-anim .phero__media, .js-anim .img-reveal { clip-path: none; }
+  .js-anim .phero__panel { opacity: 1; transform: none; }
+  .marquee__track { animation: none; }
+  .loader { display: none; }
+}
